@@ -67,10 +67,8 @@ SELECT email FROM users;
 SELECT firstName FROM users WHERE firstName LIKE 'e%';
 
 -- List all the countries where user_id = 2 lives.
-SELECT * from countries
-WHERE user_id = 2; 
 
-select name from country 
+select name from countries 
     where id = (
         select country_id from addresses 
         where user_id = 2;

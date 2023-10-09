@@ -21,16 +21,17 @@ CREATE TABLE addresses (
 id INT AUTO_INCREMENT NOT NULL,
 user_id INT,
 country_id INT,
-PRIMARY KEY (id),
-FOREIGN KEY (user_id)
-    REFERENCES users(id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-FOREIGN KEY (country_id)
-    REFERENCES countries(id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
+PRIMARY KEY (id)
 );
+-- FOREIGN KEY (user_id)
+--     REFERENCES users(id)
+--     ON DELETE CASCADE
+--     ON UPDATE CASCADE,
+-- FOREIGN KEY (country_id)
+--     REFERENCES countries(id)
+--     ON DELETE CASCADE
+--     ON UPDATE CASCADE
+
 
 -- Create 2 users and 3 countries, and populate the address table 
 -- using the following data:
@@ -68,4 +69,11 @@ SELECT firstName FROM users WHERE firstName LIKE 'e%';
 -- List all the countries where user_id = 2 lives.
 SELECT * from countries
 WHERE user_id = 2; 
+
+select name from country 
+    where id = (
+        select country_id from addresses 
+        where user_id = 2;
+    );
+
 

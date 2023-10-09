@@ -68,10 +68,7 @@ SELECT firstName FROM users WHERE firstName LIKE 'e%';
 
 -- List all the countries where user_id = 2 lives.
 
-select name from countries 
-    where id = (
-        select country_id from addresses 
-        where user_id = 2;
-    );
-
-
+SELECT c.name, a.user_id, a.country_id
+    FROM countries c 
+    JOIN addresses a
+    ON a.user_id = c.id; 

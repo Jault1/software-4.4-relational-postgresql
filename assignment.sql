@@ -71,4 +71,5 @@ SELECT firstName FROM users WHERE firstName LIKE 'e%';
 SELECT c.name, a.user_id, a.country_id
     FROM countries c 
     JOIN addresses a
-    ON a.user_id = c.id; 
+    ON a.user_id = c.id
+    WHERE a.user = 2; 
